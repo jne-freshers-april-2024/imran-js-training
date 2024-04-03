@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Basic Form Tag</h1>
+    <form onclick="addinfo()">
+        <input name="name" type="radio" value="very pure" id="very pure"> very pure
+        <input name="name" type="radio" value="pure" id="pure"> pure
+        <input name="name" type="radio" value="good" id="good"> good
+        <input name="name" type="radio" value="bad" id="bad"> bad
+        <br>
+        <button id="submit">Submit</button>
+
+        <p id="2"></p>
+    </form>
+    <script>
+         function addinfo(){
+             let con = document.getElementsByName("name");
+             let out = document.getElementById("2");
+             con.forEach((rate)=>{
+                 if(rate.checked){
+                     out.innerText = `selected : ${rate.value}`;
+                 }
+             })
+         }
+    </script>
+</body>
+</html>
