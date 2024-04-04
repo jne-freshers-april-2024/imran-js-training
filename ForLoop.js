@@ -15,6 +15,7 @@ for(let i=0 ; i<array2.length ; i++){
 }
 
 
+
 // iterator over the iterator object 
 for(let l of array2){
    console.log(l+" -- ");
@@ -32,4 +33,5 @@ for(const c in person){
 }
 
 console.log("co"+text);
+
 
