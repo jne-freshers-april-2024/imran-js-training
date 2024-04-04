@@ -14,6 +14,24 @@ for(let i=0 ; i<array2.length ; i++){
    console.log(array2[i]+" -- ");
 }
 
+
+
+// iterator over the iterator object 
 for(let l of array2){
    console.log(l+" -- ");
 }
+
+
+// iterator over the property of object
+
+const person = {name:"Imran ",surname:"Bagwan ",company:"Thinkitive"};
+
+let text = "";
+
+for(const c in person){
+   text +=person[x];
+}
+
+console.log("co"+text);
+
+
