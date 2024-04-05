@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <table id="1">
+         <tr>
+             <th>Id</th>
+             <th>User_id</th>
+             <th>title</th>
+             <th>Completed</th>
+         </tr>
+         
+    </table>
+
+    <script>
+        console.log("hello");
+        //let data = axios.get(https://jsonplaceholder.typicode.com/todos)
+  //let map = [ ];
+
+   async function getData(){
+   
+   await fetch('https://jsonplaceholder.typicode.com/todos')
+   .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    return response.json();
+   })
+  .then(data => {
+    console.log('Data received:', data);
+    map = data;
+   })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+    });
+    return map;
+   }
+  
+  let actualData = getData();
+  let table = document.getElementById('1');
+  console.log("data");
+  //table.innerText = actualData[0];
+
+  async function createRow(){
+    var tab= table ;
+    var rowCount = tab.rows.length;  
+    var row = await tab.insertRow(rowCount);  
+    return row;
+    //Column 1  
+    // var cell1 = row.insertCell(0);  
+    // var element1 = document.createElement("input"); 
+  }
+  actualData.then((resolve)=>{
+     console.log(resolve);
+     //let newRow = createRow();
+     for(let c of resolve){
+        console.log(c);
+      //  let newRow = createRow();
+      //  newRow = c;
+
+
+    var x=document.getElementById('1').insertRow(1);
+    var c1=x.insertCell(0);
+    var c2=x.insertCell(1);
+    var c3=x.insertCell(2);
+    var c4=x.insertCell(3);
+    c1.innerHTML=c['id'];
+    c2.innerHTML=c['userId'];
+    c3.innerHTML=c['title'];
+    c4.innerHTML=c['completed']
+     }
+  })
+
+
+
+   
+ </script>
+</body>
+</html>
